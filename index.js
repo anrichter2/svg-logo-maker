@@ -1,11 +1,12 @@
 const inquirer = require('inquirer')
 const fs = require('fs')
+const { createSVG } = require('./lib/svg.js')
 
 const questions = [
     {
         type: "input",
         message: "What text do you want for the logo?",
-        name: text
+        name: "text"
     },
     {
         type: "input",
@@ -23,12 +24,17 @@ const questions = [
         message: "What color do you want for the shape?",
         name: "colorShape"
     }
-]
+];
 
 inquirer
     .prompt(questions)
     .then(response => {
-        fs.writeFile('logo.svg', response, err =>
+        console.log(response) // DELETE when done
+        return fs.writeFile('logo.svg', createSVG(response), err =>
             err ? console.log(err) : console.log('Generated logo.svg')
         )
     })
+    .catch((error) => {
+        console.log('catch error', error);
+        console.log('there was an error with inquirer')
+    });
