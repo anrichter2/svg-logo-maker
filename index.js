@@ -1,7 +1,9 @@
+// importing required npm modules and functions
 const inquirer = require('inquirer')
 const fs = require('fs')
 const { createSVG } = require('./lib/svg.js')
 
+// Questions for the inquirer prompt
 const questions = [
     {
         type: "input",
@@ -26,10 +28,10 @@ const questions = [
     }
 ];
 
+// Inquirer section that will ask the user for input and then will write the logo.svg file.
 inquirer
     .prompt(questions)
     .then(response => {
-        console.log(response) // DELETE when done
         return fs.writeFile('logo.svg', createSVG(response), err =>
             err ? console.log(err) : console.log('Generated logo.svg')
         )
