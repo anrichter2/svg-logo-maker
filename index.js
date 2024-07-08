@@ -1,13 +1,14 @@
 // importing required npm modules and functions
 const inquirer = require('inquirer')
 const fs = require('fs')
+const { join } = require('path');
 const { createSVG } = require('./lib/svg.js')
 
 // Questions for the inquirer prompt
 const questions = [
     {
         type: "input",
-        message: "What text do you want for the logo?",
+        message: "What text do you want for the logo? (Max three letters)",
         name: "text"
     },
     {
@@ -32,11 +33,10 @@ const questions = [
 inquirer
     .prompt(questions)
     .then(response => {
-        return fs.writeFile('logo.svg', createSVG(response), err =>
+        return fs.writeFile(join(__dirname, 'dist', 'logo.svg'), createSVG(response), err =>
             err ? console.log(err) : console.log('Generated logo.svg')
         )
     })
     .catch((error) => {
         console.log('catch error', error);
-        console.log('there was an error with inquirer')
     });
