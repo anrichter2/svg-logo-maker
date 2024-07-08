@@ -14,12 +14,12 @@ After installing inquirer you type node index.js into the terminal, and the term
 
 Below are screenshots showing a generated SVG file and browser image.
 
-![Generated SVG file in VS code](./images/)
+![Generated SVG file in VS code](./images/svg-in-vscode.png)
 
-![Generated SVG in browser](./images/)
+![Generated SVG in browser](./images/svg-in-browser.png)
 
 Link to a walkthrough video showing the application in action:
-[Walkthrough Video]()
+[Walkthrough Video](https://drive.google.com/file/d/1pGNXJnnG7iDfFd8i7O6E-eS3oDSRJB6E/view)
 
 ## Credits
 
